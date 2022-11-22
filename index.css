@@ -1,0 +1,70 @@
+*{
+    padding:0 !important;
+    margin:0 !important;
+    box-sizing: border-box;
+    transition:all 0.2s;
+    border-color: #AAA !important;
+}
+body{
+    width:100vw;
+    height:100vh;
+    background-color: #f2f2f2;
+}
+form{
+    width:inherit;
+    height: inherit;
+}
+input[type=text],input[type=text]:focus,input[type=number],input[type=number]:focus,textarea{
+    border:none !important; 
+    border-bottom: 1px solid #AAA !important;
+    outline: none;
+    padding: 4px !important;
+    width:50%;
+}
+input[type=text]:focus,input[type=number]:focus,textarea:focus{
+    border-bottom: 2px solid #777 !important;
+}
+
+.header{
+    text-align: center;
+    font-weight: normal;
+    margin-bottom: 2vw !important;
+}
+.container{
+    background-color: #FFF;
+    width:50vw;
+    height:100vh;
+    padding:1vw !important;
+    margin: auto !important;
+}
+.inputRow div{
+    height: inherit;
+    display: inline-block;
+    width:49%;
+    padding: 5px !important;
+}
+.inputRow div:first-child{
+    text-align: right;
+    font-weight: bold;
+    color:#AAA;
+    vertical-align: middle;
+}
+.saveRow{
+    text-align: center;
+}
+
+.saveButton{
+    width: 70px !important;
+    height: 27px !important;
+    padding: 5px !important;
+    border-radius: 5px;
+    background-color: #08F;
+    border: 1px solid #08F !important;
+    cursor: pointer;
+    color: #FFF;
+}
+
+.saveButton:hover{
+    border: 2px solid #AAA !important;
+    font-weight: bold;
+}

@@ -1,8 +1,12 @@
 <html>
-<head><title>Daily stats check</title></head>
+<head>
+  <title>Daily stats check</title>
+  <link rel="stylesheet" href="index.css">
+</head>
 <body>
   <form id="inputform" name="inputform">
     <div class="container">
+      <h1 class="header">Stats</h1>
       <div class="inputRow DateRow">
         <div>
             <label class="inputLabel">Date</label>
@@ -53,7 +57,7 @@
       </div>
       <div class="inputRow satLvlRow">
         <div>
-            <label class="inputLabel">SAT lvl</label>
+            <label class="inputLabel">SAT lvl %</label>
         </div>
         <div>
           <input type="number" min="1" max="100" name="satLvl" class="satLvlInput"/>
@@ -64,7 +68,7 @@
             <label class="inputLabel">Comments</label>
         </div>
         <div>
-          <textarea name="comments" class="commentsInput" rows="3" cols="5"/>
+          <textarea name="comments" class="commentsInput" rows="4" cols="5"></textarea>
         </div>
       </div>
       <div class="inputRow suggestionsRow">
@@ -72,12 +76,15 @@
             <label class="inputLabel">Suggestions</label>
         </div>
         <div>
-          <textarea name="suggestions" class="suggestionsInput" rows="3" cols="5"/>
+          <textarea name="suggestions" class="suggestionsInput" rows="4" cols="5"></textarea>
         </div>
+      </div>
+      <div class="inputRow saveRow">
+          <input type="button" id="saveButton" value="Save" class="saveButton"/>
+
       </div>
     </div>
   </form>
-  <script>
-  </script>
+  <script defer src="index.js"></script>
 </body>
 </html>
