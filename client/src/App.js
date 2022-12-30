@@ -1,5 +1,6 @@
 import React,{useState} from 'react'
 import axios from 'axios';
+import './index.css'
 
 const App = props =>{
   const [state,setState] = useState({
@@ -25,6 +26,7 @@ const App = props =>{
     const url = "https://daily-stats-1bd16-default-rtdb.firebaseio.com/DailyStats.json"
     const response = await axios.post(url, state)
     console.log(response.data);
+    alert(response.data ? "Success!!" : "Error")
   }
 return(
     <form id="inputform" name="inputform">
