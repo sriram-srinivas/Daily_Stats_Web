@@ -29,7 +29,7 @@ const App = props =>{
   const submitData = async () => {
     console.log("state",state);
     const url = "https://daily-stats-1bd16-default-rtdb.firebaseio.com/DailyStats.json"
-    const response = false && await axios.post(url, state)
+    const response = true && await axios.post(url, state)
     console.log(response.data);
     alert(response.data ? "Success!!" : "Error")
   }
