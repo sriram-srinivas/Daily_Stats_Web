@@ -1,6 +1,11 @@
 import React,{useState} from 'react'
 import axios from 'axios';
-import './index.css'
+import './index.css';
+import {dailyStatFields} from './constants/componentSourceConstants';
+import Textbox from './components/textBox/textbox';
+import Checkbox from './components/checkbox/checkbox';
+import Number from './components/number/number';
+import TextArea from './components/textArea/textArea';
 
 const App = props =>{
   const [state,setState] = useState({
@@ -24,7 +29,7 @@ const App = props =>{
   const submitData = async () => {
     console.log("state",state);
     const url = "https://daily-stats-1bd16-default-rtdb.firebaseio.com/DailyStats.json"
-    const response = await axios.post(url, state)
+    const response = false && await axios.post(url, state)
     console.log(response.data);
     alert(response.data ? "Success!!" : "Error")
   }
@@ -32,78 +37,25 @@ return(
     <form id="inputform" name="inputform">
     <div className={"container"}>
       <h1 className={"header"}>Stats</h1>
-      <div className={"inputRow DateRow"}>
-        <div>
-            <label className={"inputLabel"}>Date</label>
-        </div>
-        <div>
-          <input type="text" id="date" name="date" value={state.date} className={"dateInput"} onChange={handleTextChange}/>
-        </div>
-      </div>
-      <div className={"inputRow NFRow"}>
-        <div>
-            <label className={"inputLabel"}>NF</label>
-        </div>
-        <div>
-          <input type="checkbox" id="noFight" name="noFight" value={state.noFight} className={"NFInput"} onChange={handleTextChange}/>
-        </div>
-      </div>
-      <div className={"inputRow NIRow"}>
-        <div>
-            <label className={"inputLabel"}>No Interruption</label>
-        </div>
-        <div>
-          <input type="checkbox" id="noInterruption" name="noInterruption" value={state.noInterruption} className={"NIInput"} onChange={handleTextChange}/>
-        </div>
-      </div>
-      <div className={"inputRow goodTalkRow"}>
-        <div>
-            <label className={"inputLabel"}>Good Talk</label>
-        </div>
-        <div>
-          <input type="checkbox" id="goodTalk" name="goodTalk" value={state.goodTalk} className={"goodTalkInput"} onChange={handleTextChange}/>
-        </div>
-      </div>
-      <div className={"inputRow reachedRow"}>
-        <div>
-            <label className={"inputLabel"}>Reached Informed</label>
-        </div>
-        <div>
-          <input type="checkbox" id="reached" name="reachedInformed" value={state.reached} className={"reachedInput"} onChange={handleTextChange}/>
-        </div>
-      </div>
-      <div className={"inputRow lunchRow"}>
-        <div>
-            <label className={"inputLabel"}>Lunch informed</label>
-        </div>
-        <div>
-          <input type="checkbox" id="lunch" name="lunchInformed" value={state.lunch} className={"lunchInput"}  onChange={handleTextChange}/>
-        </div>
-      </div>
-      <div className={"inputRow satLvlRow"}>
-        <div>
-            <label className={"inputLabel"}>SAT lvl %</label>
-        </div>
-        <div>
-          <input type="number" min="1" max="100" id="satLvl" name="satLvl" value={state.satLvl} className={"satLvlInput"} onChange={handleTextChange}/>
-        </div>
-      </div>
-      <div className={"inputRow commentsRow"}>
-        <div>
-            <label className={"inputLabel"}>Comments</label>
-        </div>
-        <div>
-          <textarea type="textarea" name="comments" id="comments" value={state.comments} className={"commentsInput"} rows="4" cols="5"  onChange={handleTextChange}></textarea>
-        </div>
-      </div>
-      <div className={"inputRow suggestionsRow"}>
-        <div>
-            <label className={"inputLabel"}>Suggestions</label>
-        </div>
-        <div>
-          <textarea type="textarea" name="suggestions" id="suggestions" value={state.suggestions} className={"suggestionsInput"} rows="4" cols="5"  onChange={handleTextChange}></textarea>
-        </div>
-      </div>
+      <Textbox {...dailyStatFields.dateField} state={state} onChangeHandler={handleTextChange}/>
+      <Checkbox {...dailyStatFields.noFightField} state={state} onChangeHandler={handleTextChange}>
+        <Textbox {...dailyStatFields.noFightDescField} state={state} onChangeHandler={handleTextChange}/>
+      </Checkbox>
+      <Checkbox {...dailyStatFields.noInterruptionField} state={state} onChangeHandler={handleTextChange}>
+        <Textbox {...dailyStatFields.noInterruptionDescField} state={state} onChangeHandler={handleTextChange}/>
+      </Checkbox>
+      <Checkbox {...dailyStatFields.goodTalkField} state={state} onChangeHandler={handleTextChange}>
+        <Textbox {...dailyStatFields.goodTalkDescField} state={state} onChangeHandler={handleTextChange}/>
+      </Checkbox>
+      <Checkbox {...dailyStatFields.reachedInformedField} state={state} onChangeHandler={handleTextChange}>
+        <Textbox {...dailyStatFields.reachedInformedDescField} state={state} onChangeHandler={handleTextChange}/>
+      </Checkbox>
+      <Checkbox {...dailyStatFields.lunchInformedField} state={state} onChangeHandler={handleTextChange}>
+        <Textbox {...dailyStatFields.lunchInformedDescField} state={state} onChangeHandler={handleTextChange}/>
+      </Checkbox>
+      <Number {...dailyStatFields.satLvlField} state={state} onChangeHandler={handleTextChange}/>
+      <TextArea {...dailyStatFields.commentsField} state={state} onChangeHandler={handleTextChange}/>
+      <TextArea {...dailyStatFields.suggestionsField} state={state} onChangeHandler={handleTextChange}/>
       <div className={"inputRow saveRow"}>
           <input type="button" id="saveButton" value="Save" className={"saveButton"} onClick={submitData}/>
 

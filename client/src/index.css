@@ -52,6 +52,18 @@ input[type=text]:focus,input[type=number]:focus,textarea:focus{
 .saveRow{
     text-align: center;
 }
+.inputRow.checkDesc div{
+   padding: 0px 5px !important;
+   width:99% !important;
+}
+.inputRow.checkDesc div{
+    padding: 0px 5px !important;
+    width:99% !important;
+ }
+
+ .inputRow.checkDesc input{
+    width:99% !important;
+ }
 
 .saveButton{
     width: 70px !important;
